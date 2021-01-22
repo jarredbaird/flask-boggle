@@ -4,32 +4,30 @@ from random import choice
 import string
 
 
-def read_dict(dict_path):
-    """Read and return all words in dictionary."""
-
-    dict_file = open(dict_path)
-    words = [w.strip() for w in dict_file]
-    dict_file.close()
-    return words
-
-
-def make_board():
-    """Make and return a random boggle board."""
-
-    board = []
-
-    for y in range(5):
-        row = [choice(string.ascii_uppercase) for i in range(5)]
-        board.append(row)
-
-    return board
-
-
-class Boggle:
+class Boggle():
 
     def __init__(self):
 
-        self.words = read_dict("words.txt")
+        self.words = self.read_dict("words.txt")
+
+    def read_dict(self, dict_path):
+        """Read and return all words in dictionary."""
+
+        dict_file = open(dict_path)
+        words = [w.strip() for w in dict_file]
+        dict_file.close()
+        return words
+
+    def make_board(self):
+        """Make and return a random boggle board."""
+
+        board = []
+
+        for row in range(5):
+            row = [choice(string.ascii_uppercase) for i in range(5)]
+            board.append(row)
+
+        return board
 
     def check_valid_word(self, board, word):
         """Check if a word is a valid word in the dictionary and/or the boggle board"""
