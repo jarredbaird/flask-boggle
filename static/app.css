@@ -1,0 +1,13 @@
+.feedback {
+  padding: 1em;
+}
+
+.feedback.error {
+  color: white;
+  background-color: red;
+}
+
+.feedback.ok {
+  color: white;
+  background-color: green;
+}
